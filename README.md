@@ -58,4 +58,13 @@ Included filename/path of all code/configuration files in GitHub of routing quer
 
 Essentially, all write requests were sent to the master so that any changes made to the database is reflected in both 
     the master and slave. All read request were sent to the slave given no changes to the database needed to be made. 
-    
+
+DockerFile and K8 Cluster Data:
+
+Collected the throughput when our K8s cluster is configured as 1 Control Plane + 3 Worker nodes + 1 master MySQL pod + 1 slave MySQL pod + 2 Fabflix pods:
+
+19.3 requests/second
+
+Collected the throughput after reconfiguring our K8s Cluster to 1 Control Plane + 4 Worker nodes + 1 master MySQL pod + 1 slave MySQL pod + 3 Fabflix pods: 
+
+28.9 requests/second
