@@ -1,0 +1,14 @@
+---
+:id: 255447359
+:submitters:
+- :name: Brian Hoan Tran
+  :email: brianht2@uci.edu
+- :name: Brandon Zehao Chan
+  :email: chanbz@uci.edu
+:created_at: !ruby/object:ActiveSupport::TimeWithZone
+  utc: 2024-05-27 02:06:59.340687000 Z
+  zone: !ruby/object:ActiveSupport::TimeZone
+    name: America/Los_Angeles
+  time: 2024-05-26 19:06:59.340687000 Z
+:status: processed
+:score: 97.0

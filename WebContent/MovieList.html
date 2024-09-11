@@ -1,0 +1,160 @@
+<!-- This example is following frontend and backend separation.
+
+    This .html performs two steps:
+    1. Create a html template skeleton, with all the elements defined (some left empty) and named with ids.
+    2. Load MovieList.js to populate the data into empty elements.
+    -->
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- jQuery is required (I think this is different from the one we load in the body?)-->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <!-- include jquery autocomplete JS  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.4.11/jquery.autocomplete.min.js"></script>
+
+    <link rel="stylesheet" href="MovieList.css">
+
+    <title>Movie List</title>
+</head>
+
+<body>
+    <a href="MovieList.html"><h1><b>Fabflix</b></h1></a>
+    <h2><u>Search or Browse Movies</u></h2>
+
+    <div>
+        <!-- Search -->
+        <h2>Search</h2>
+        <div>
+            <form id="search_form" action="#">
+                <label><b>Movie Title:</b></label>
+                <label>
+                    <input name="movieTitle" id="autocomplete" class="autocomplete-searchbox form-control" placeholder="ex: The Lion King">
+                </label>
+
+                <label><b>Year Released:</b></label>
+                <label>
+                    <input name="yearReleased" placeholder="ex: 1994">
+                </label>
+
+                <label><b>Director:</b></label>
+                <label>
+                    <input name="director" placeholder="ex: Roger Allers">
+                </label>
+
+                <label><b>Movie Star:</b></label>
+                <label>
+                    <input name="movieStar" placeholder="ex: Matthew Broderick">
+                </label>
+                <input type="submit" value="Search">
+            </form>
+        </div>
+
+        <h2>Browse</h2>
+        <div>
+            <h3>Title</h3>
+            <ul id="title_list" class="list-inline">
+                <!-- Titles will be populated here by MovieList.js -->
+            </ul>
+
+            <h3>Genre</h3>
+            <!-- List-inline displays the contents horrizontally -->
+            <ul id="genre_list"  class="list-inline">
+                <!-- Genres will be populated here by MovieList.js -->
+            </ul>
+        </div>
+
+        <!-- Set Max Entries per Page -->
+        <form id="entries_form" action="#">
+            <label for="entriesPerPage">Entries per page:</label>
+            <select name="entriesPerPage" id="entriesPerPage" onchange="handleEntriesChange()">
+                <option value="0"> </option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+            </select>
+            <noscript><input type="submit" value="Update"></noscript>
+        </form>
+    </div>
+
+    <!-- Sort By Toggle -->
+    <fieldset>
+        <legend>Sort By:</legend>
+        <label>
+            <input type="radio" name="sortby" value="rating"> Rating
+        </label>
+        <label>
+            <input type="radio" name="sortby" value="title"> Title
+        </label>
+    </fieldset>
+
+    <!-- Sort Order Toggle -->
+    <fieldset>
+        <legend>Sort Order:</legend>
+        <label>
+            <input type="radio" name="sortorder" value="desc"> Descending
+        </label>
+        <label>
+            <input type="radio" name="sortorder" value="asc"> Ascending
+        </label>
+    </fieldset>
+
+    <h1><u>Movie List</u></h1>
+    <a href="ShoppingCart.html"><button>My Shopping Cart</button></a>
+    <div class="pagination-top">
+        <button class="prev-button">Previous</button>
+        <input type="number" class="page_number_input" min="1" step="1" placeholder="Page number">
+        <button class="next-button">Next</button>
+    </div>
+
+    <!-- Id "movie_table" is useful for jQuery to find the html element with id, class here is mapping to Bootstrap defined class CSS -->
+    <table id=movie_table class="table table-striped">
+        <!-- Create a table header -->
+        <thead>
+            <tr>
+                <!-- Titles of each column-->
+                <th>Add to Cart</th>
+                <th>Title</th>
+                <th>Year</th>
+                <th>Director</th>
+                <th>Genres</th>
+                <th>Stars</th>
+                <th>Rating</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <!-- Table body is left empty here, will be populated with the data retrieved with MovieList.js -->
+        <!-- Again, id "movieList_table_body" is useful for jQuery to find this html element -->
+        <tbody id=movieList_table_body></tbody>
+    </table>
+
+    <div class="pagination-bottom">
+        <button class="prev-button">Previous</button>
+        <input type="number" class="page_number_input" min="1" step="1" placeholder="Page number">
+        <button class="next-button">Next</button>
+    </div>
+    <!-- Load jQuery and Bootstrap JS -->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- Load our own JS file -->
+    <!-- The path is relative to MovieList.html, since these two files are in the same directory -->
+    <!-- Note the url does not contain a "/" in the beginning, which means the url is relative to current path
+         otherwise the url is relative to the root path-->
+    <script src="MovieList.js"></script>
+</body>
+
+
+</html>
