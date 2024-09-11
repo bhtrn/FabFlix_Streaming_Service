@@ -1,7 +1,7 @@
 # FabFlix_Streaming_Service
 Web-Based application replicating modern streaming service
 
-- # Connection Pooling
+Connection Pooling:
 Included filename/path of all code/configuration files in GitHub of using JDBC Connection Pooling.
       - _dashboardServlet
       -  _tableMetaDataServlet
